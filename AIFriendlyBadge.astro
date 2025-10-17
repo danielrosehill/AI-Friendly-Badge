@@ -1,0 +1,165 @@
+---
+// AIFriendlyBadge.astro
+// An Astro component version of the AI Training Friendly badge
+// Props allow customization of links and text
+
+interface Props {
+    aiTxtPath?: string;
+    llmsTxtPath?: string;
+    badgeText?: string;
+    detailsText?: string;
+    className?: string;
+}
+
+const {
+    aiTxtPath = '/ai.txt',
+    llmsTxtPath = '/llms.txt',
+    badgeText = 'AI Training Friendly',
+    detailsText = 'Open to AI crawlers, indexing & training',
+    className = ''
+} = Astro.props;
+---
+
+<div class={`ai-friendly-badge ${className}`}>
+    <a href={aiTxtPath} title="This site welcomes AI crawlers and training - see our AI permissions" class="ai-badge-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai-icon">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+            <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+            <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+        </svg>
+        <span class="ai-badge-text">{badgeText}</span>
+    </a>
+    <div class="ai-badge-details">
+        {detailsText} •
+        <a href={llmsTxtPath} class="ai-details-link">llms.txt</a> •
+        <a href={aiTxtPath} class="ai-details-link">ai.txt</a>
+    </div>
+</div>
+
+<style>
+    /* AI Friendly Badge Styles */
+    .ai-friendly-badge {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ai-friendly-badge:hover {
+        background-color: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .ai-badge-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.95);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    .ai-badge-link:hover {
+        color: white;
+        transform: scale(1.02);
+    }
+
+    .ai-badge-link:focus-visible {
+        outline: 2px solid #ffffff;
+        outline-offset: 4px;
+        border-radius: 4px;
+    }
+
+    .ai-icon {
+        width: 18px;
+        height: 18px;
+        stroke: currentColor;
+        animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 0.9;
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    }
+
+    .ai-badge-text {
+        letter-spacing: 0.5px;
+    }
+
+    .ai-badge-details {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .ai-details-link {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-family: 'Courier New', monospace;
+        transition: color 0.2s ease;
+    }
+
+    .ai-details-link:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .ai-details-link:focus-visible {
+        outline: 2px solid #ffffff;
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+
+    /* Light theme support - apply to parent with data-theme="light" */
+    :global([data-theme="light"]) .ai-friendly-badge {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    :global([data-theme="light"]) .ai-friendly-badge:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+        border-color: rgba(0, 0, 0, 0.25);
+    }
+
+    :global([data-theme="light"]) .ai-badge-link {
+        color: rgba(0, 0, 0, 0.85);
+    }
+
+    :global([data-theme="light"]) .ai-badge-link:hover {
+        color: rgba(0, 0, 0, 1);
+    }
+
+    :global([data-theme="light"]) .ai-badge-details {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    :global([data-theme="light"]) .ai-details-link {
+        color: rgba(0, 0, 0, 0.75);
+    }
+
+    :global([data-theme="light"]) .ai-details-link:hover {
+        color: rgba(0, 0, 0, 1);
+    }
+</style>

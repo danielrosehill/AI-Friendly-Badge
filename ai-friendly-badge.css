@@ -1,0 +1,171 @@
+/* AI Friendly Badge Styles */
+/* Extracted from danielrosehill.com footer implementation */
+
+:root {
+    /* Default theme colors - customize these to match your site */
+    --badge-bg: rgba(255, 255, 255, 0.08);
+    --badge-bg-hover: rgba(255, 255, 255, 0.12);
+    --badge-border: rgba(255, 255, 255, 0.15);
+    --badge-border-hover: rgba(255, 255, 255, 0.25);
+    --badge-text: rgba(255, 255, 255, 0.95);
+    --badge-text-hover: white;
+    --badge-details-text: rgba(255, 255, 255, 0.7);
+    --badge-link-text: rgba(255, 255, 255, 0.85);
+}
+
+/* For light backgrounds, uncomment and adjust these: */
+/*
+:root {
+    --badge-bg: rgba(0, 0, 0, 0.05);
+    --badge-bg-hover: rgba(0, 0, 0, 0.08);
+    --badge-border: rgba(0, 0, 0, 0.15);
+    --badge-border-hover: rgba(0, 0, 0, 0.25);
+    --badge-text: rgba(0, 0, 0, 0.85);
+    --badge-text-hover: rgba(0, 0, 0, 1);
+    --badge-details-text: rgba(0, 0, 0, 0.6);
+    --badge-link-text: rgba(0, 0, 0, 0.75);
+}
+*/
+
+.ai-friendly-badge {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--badge-bg);
+    border-radius: 12px;
+    border: 1px solid var(--badge-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ai-friendly-badge:hover {
+    background-color: var(--badge-bg-hover);
+    border-color: var(--badge-border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ai-badge-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--badge-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.ai-badge-link:hover {
+    color: var(--badge-text-hover);
+    transform: scale(1.02);
+}
+
+.ai-badge-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.ai-icon {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+.ai-badge-text {
+    letter-spacing: 0.5px;
+}
+
+.ai-badge-details {
+    font-size: 0.75rem;
+    color: var(--badge-details-text);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.ai-details-link {
+    color: var(--badge-link-text);
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    transition: color 0.2s ease;
+}
+
+.ai-details-link:hover {
+    color: var(--badge-text-hover);
+    text-decoration: underline;
+}
+
+.ai-details-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Demo page styles (optional - remove if using in production) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.demo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: white;
+}
+
+.demo-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.demo-container p {
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.badge-demo {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+}
+
+.instructions h2 {
+    margin-top: 0;
+}
+
+.instructions ol {
+    line-height: 2;
+}
