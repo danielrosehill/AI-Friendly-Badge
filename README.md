@@ -2,7 +2,7 @@
 
 A simple, elegant badge to show that your website welcomes AI crawlers, indexing, and training.
 
-![AI Training Friendly Badge Demo](image.png)
+![AI Training Friendly Badge Demo](new-image.png)
 
 ## What is this?
 
